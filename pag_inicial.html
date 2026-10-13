@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>Projeto Arduino</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link href="../CSS/estiloflex.css" rel="stylesheet" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background-color: rgba(0, 0, 0, 0.747);
+        color: #ffffff;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 4rem;
+        background: linear-gradient(
+          to right,
+          #00ff00,
+          #ffff00,
+          #ff0000,
+          #00ff00
+        );
+        color: #000;
+        background-size: 200% auto;
+        animation: rgbTITULO 4s linear infinite;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+      }
+
+      .logo h3 {
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #000000;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        transition:
+          background-color 0.2s,
+          transform 0.1s;
+        display: inline-block;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-links a:hover {
+        background-color: #222222;
+        transform: translateY(-2px);
+      }
+
+      .nav-links a:active {
+        transform: translateY(0);
+      }
+
+      @keyframes rgbTITULO {
+        0% {
+          background-position: 0% center;
+          box-shadow: 0px 8px 30px rgba(0, 255, 0, 0.7);
+        }
+        33% {
+          box-shadow: 0px 8px 30px rgba(255, 255, 0, 0.7);
+        }
+        66% {
+          box-shadow: 0px 8px 30px rgba(255, 0, 0, 0.7);
+        }
+        100% {
+          background-position: 200% center;
+          box-shadow: 0px 8px 30px rgba(0, 255, 0, 0.7);
+        }
+      }
+
+      .conteiner {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        padding-top: 140px;
+      }
+
+      .secao-projeto {
+        margin-bottom: 3rem;
+      }
+
+      .titulo1 {
+        margin-top: 0px;
+        color: #ffffff;
+        font-size: clamp(2rem, 5vw, 3.75rem);
+        text-align: center;
+      }
+
+      .titulo2 {
+        margin-top: 100px;
+        color: #ffffff;
+        font-size: clamp(2rem, 5vw, 3.75rem);
+        text-align: center;
+      }
+
+      [id] {
+        scroll-margin-top: 160px;
+      }
+
+      .div-card-pai {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card-custom {
+        background-color: rgb(255, 255, 255);
+        border-radius: 8px;
+        padding: 3rem 2rem;
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        text-align: center;
+        box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.7);
+        color: #000000;
+        font-size: 21px;
+        line-height: 1.6;
+      }
+
+      .lista-materiais {
+        list-style-type: disc;
+        text-align: left;
+        display: inline-block;
+        font-size: 21px;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <h3>Projeto Medidor de luz</h3>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">INICIO</a></li>
+          <li><a href="#alunos">INTEGRANTES</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="conteiner">
+      <section id="home" class="secao-projeto">
+        <h1 class="titulo1">Sobre nosso Projeto</h1>
+        <div class="div-card-pai">
+          <div class="card-custom">
+            Nosso projeto é um medidor de luz inteligente que funciona de forma
+            automática. Ele usa o Arduino, que é o "cérebro" do sistema, e um
+            sensor de luz chamado LDR, que funciona como o "olho" do projeto
+            para perceber se o ambiente está claro ou escuro. Ao medir a
+            claridade através de fios conectores e de uma placa de ensaio, o
+            sistema usa pecinhas chamadas resistores para controlar a
+            eletricidade com segurança e decide sozinho quando acender ou apagar
+            as lâmpadas LEDs. É uma solução prática criada para economizar
+            energia no dia a dia e deixar as casas mais modernas.
+          </div>
+        </div>
+
+        <h1 class="titulo2">Como funciona?</h1>
+        <div class="div-card-pai">
+          <div class="card-custom">
+            O sensor LDR mede a quantidade de luz ambiente e repassa os dados
+            para o microcontrolador. Se a luminosidade cair abaixo de um limite
+            pré-configurado, o circuito aciona automaticamente os LEDs
+            refletores. Assim que a luz natural retorna ao ambiente, o Arduino
+            corta a corrente, desligando o system e poupando energia elétrica de
+            forma autônoma.
+          </div>
+        </div>
+
+        <h1 class="titulo2">Materiais Utilizados</h1>
+        <div class="div-card-pai">
+          <div class="card-custom">
+            <ul class="lista-materiais">
+              <li>Placa Arduino (Uno, Nano ou similar)</li>
+              <li>Sensor de Luz LDR (Resistor Dependente de Luz)</li>
+              <li>Lâmpadas ou Componentes LED</li>
+              <li>Resistores (para controle de corrente do LED e do LDR)</li>
+              <li>Placa de Ensaio (Protoboard)</li>
+              <li>Fios Conectores (Jumpers)</li>
+            </ul>
+          </div>
+        </div>
+
+        <h1 class="titulo2">Aplicações na Vida Real</h1>
+        <div class="div-card-pai">
+          <div class="card-custom">
+            Este sistema inteligente pode ser aplicado diretamente em diversas
+            situações do cotidiano para gerar economia e automação:
+            <br /><br />
+            • Postes de iluminação pública que acendem sozinhos ao anoitecer.<br />
+            • Luzes de segurança em quintais, garagens e fachadas
+            residenciais.<br />
+            • Automação de abajures e luminárias internas para conforto térmico
+            e visual.<br />
+            • Sistemas de estufas agrícolas para monitorar a luz que as plantas
+            recebem.
+          </div>
+        </div>
+      </section>
+
+      <section id="alunos" class="secao-projeto">
+        <h1 class="titulo2">Integrantes do Grupo</h1>
+        <div class="div-card-pai">
+          <div class="card-custom">
+            Juan Abolis Souza Demura Nº19
+            <br>
+            Davi Willian Rocha Leite Lira Nº6
+            <br>
+            Diogo Rodrigues Stocco Nº7
+            <br>
+            Gustavo Henrique Barbosa Alcantara Nº16
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
